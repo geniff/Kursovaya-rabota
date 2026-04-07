@@ -13,9 +13,14 @@ public class GroupsController : ControllerBase
 {
     private readonly AppDbContext _context;
 
-    public GroupsController(AppDbContext context) => _context = context;
+    public GroupsController(AppDbContext context)
+    {
+        _context = context;
+    }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Group>>> GetGroups() =>
-        await _context.Groups.ToListAsync();
+    public async Task<ActionResult<IEnumerable<Group>>> GetGroups()
+    {
+        return await _context.Groups.ToListAsync();
+    }
 }
